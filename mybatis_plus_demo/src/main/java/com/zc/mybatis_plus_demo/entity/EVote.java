@@ -1,8 +1,11 @@
 package com.zc.mybatis_plus_demo.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.Version;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -15,7 +18,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author zc
- * @since 2020-12-04
+ * @since 2020-12-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -37,12 +40,17 @@ public class EVote implements Serializable {
     @ApiModelProperty(value = "0正常1超时2删除")
     private Integer status;
 
+    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
 
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updatedAt;
 
     @ApiModelProperty(value = "逻辑删除字段")
     private Integer deleted;
+
+    @Version
+    private Integer version;
 
 
 }

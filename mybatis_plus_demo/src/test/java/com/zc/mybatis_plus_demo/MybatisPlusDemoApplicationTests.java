@@ -33,18 +33,21 @@ class MybatisPlusDemoApplicationTests {
     @Autowired
     private EVoteMapper eVoteMapper;
 
+    /*
+       例子： mapper 中的 crud 操作
+    */
 
     @Test
     void contextLoads() {
        //添加--------------
-       /* EVote evote = new EVote();
+        EVote evote = new EVote();
         //evote.setId(2);
-        evote.setCreatedAt(LocalDateTime.now());
-        evote.setUpdatedAt(LocalDateTime.now());
+        //evote.setCreatedAt(LocalDateTime.now());
+        //evote.setUpdatedAt(LocalDateTime.now());
         evote.setName("asd");
         evote.setStatus(3);
         evote.setType(4);
-        eVoteMapper.insert(evote);*/
+        eVoteMapper.insert(evote);
         //-------------------
 
         //删除-----------------如果设置了逻辑删除此处会变为逻辑删除

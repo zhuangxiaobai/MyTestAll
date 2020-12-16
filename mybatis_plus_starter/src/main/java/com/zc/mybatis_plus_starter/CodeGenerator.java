@@ -1,10 +1,12 @@
 package com.zc.mybatis_plus_starter;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
@@ -153,13 +155,25 @@ public class CodeGenerator {
         //指定自定义模板路径，注意不要带上.ftl/.vm, 会根据使用的模板引擎自动识别
         // templateConfig.setEntity("templates/entity2.java");
         // templateConfig.setService();
-        // templateConfig.setController();
+         templateConfig.setController("template/controller.java.vm");
 
         templateConfig.setXml(null);
         mpg.setTemplate(templateConfig);
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
+        //设置自动填充,也可以class配置
+        TableFill tableFill  = new TableFill("created_at",FieldFill.INSERT);
+        TableFill tableFill1  = new TableFill("updated_at",FieldFill.INSERT_UPDATE);
+        List<TableFill> tableFillList = new ArrayList<TableFill>(){{
+             add(tableFill);
+             add(tableFill1);
+        }
+        };
+
+        strategy.setTableFillList(tableFillList);
+        //设置version字段是乐观锁字段
+        strategy.setVersionFieldName("version");
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         //strategy.setSuperEntityClass("你自己的父类实体,没有就不用设置!");
