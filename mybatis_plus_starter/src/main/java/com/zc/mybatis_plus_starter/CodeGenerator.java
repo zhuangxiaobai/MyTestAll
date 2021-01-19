@@ -49,7 +49,7 @@ public class CodeGenerator {
 //            return;
 //        }
         //文件输出的位置
-        gc.setOutputDir(projectPath + "/mybatis_plus_demo/src/main/java");
+        gc.setOutputDir(projectPath + "/spring_security_demo/src/main/java");
         System.out.println(gc.getOutputDir());
         gc.setAuthor("zc");
         //是否打开输出目录
@@ -77,7 +77,7 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(null);
-        pc.setParent("com.zc.mybatis_plus_demo");
+        pc.setParent("com.zc.spring_security_demo");
         pc.setController("controller");
         pc.setEntity("entity");
         pc.setMapper("mapper");
@@ -127,7 +127,7 @@ public class CodeGenerator {
             public String outputFile(TableInfo tableInfo) {
                 // 输出xml文件的目录
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/mybatis_plus_demo/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                return projectPath + "/spring_security_demo/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         /*
