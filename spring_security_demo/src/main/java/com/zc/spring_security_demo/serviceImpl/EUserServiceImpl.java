@@ -4,6 +4,7 @@ import com.zc.spring_security_demo.entity.EUser;
 import com.zc.spring_security_demo.mapper.EUserMapper;
 import com.zc.spring_security_demo.service.EUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,5 +17,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EUserServiceImpl extends ServiceImpl<EUserMapper, EUser> implements EUserService {
+
+
+
 
 }

@@ -1,3 +1,4 @@
+/*
 package com.zc.spring_security_demo.config;
 
 import org.springframework.context.annotation.Bean;
@@ -50,4 +51,4 @@ public class MultiHttpSecurityConfig {
                     .formLogin(withDefaults());
         }
     }
-}
+}*/

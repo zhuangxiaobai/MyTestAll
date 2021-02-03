@@ -1,21 +1,26 @@
+/*
 package com.zc.spring_security_demo.config;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 public class MyCustomDsl extends AbstractHttpConfigurer<MyCustomDsl, HttpSecurity> {
     private boolean flag;
 
+
+
     @Override
-    public void init(H http) throws Exception {
+    public void init(HttpSecurity http) throws Exception {
         // any method that adds another configurer
         // must be done in the init method
         http.csrf().disable();
     }
 
     @Override
-    public void configure(H http) throws Exception {
+    public void configure(HttpSecurity http) throws Exception {
         ApplicationContext context = http.getSharedObject(ApplicationContext.class);
 
         // here we lookup from the ApplicationContext. You can also just create a new instance.
@@ -33,3 +38,4 @@ public class MyCustomDsl extends AbstractHttpConfigurer<MyCustomDsl, HttpSecurit
         return new MyCustomDsl();
     }
 }
+*/
